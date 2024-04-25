@@ -9,7 +9,7 @@ const signInControl = (req, res) => {
     try {
         const {email, password } = req.query;
         const agent = agentes.find((agent) => {
-        agent.email === email && agent.password === password;
+        return agent.email === email && agent.password === password;
         })
         let token = jwt.sign({ email }, secretKey, { expiresIn: "1m"});
         agent ? res.send(`<p>Agente Autorizado, bienvenido <b>${email}</b>
