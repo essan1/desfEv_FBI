@@ -1,4 +1,4 @@
-exports.results = [
+const users = [
   {
     email: 'who@fbi.com',
     password: 'me',
@@ -12,3 +12,5 @@ exports.results = [
     password: 'exactly',
   },
 ]
+
+export default users;

@@ -1,5 +1,6 @@
 import express from "express";
-import router from "./src/routes/routes.js";
+import router from "./src/routes/web.routes.js";
+import routerUser from "./src/routes/user.routes.js"
 import path from "path";
 const app = express();
 const PORT = process.env.PORT || 3033;
@@ -11,6 +12,7 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, "src/assets")));
 
 app.use(router);
+app.use(routerUser);
 
 app.listen(PORT, () =>
   console.log(`🔥Server Running on http://localhost:${PORT}`)
