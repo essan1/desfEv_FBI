@@ -1,18 +1,12 @@
 import express from "express";
-import path from "path";
+import { homePage, rutaGenerica } from "../controllers/controllers.js";
 const router = express.Router();
-const __dirname = import.meta.dirname;
 
 //ruta principal
 
-router.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "../views/index.html"));
-});
+router.get("/", homePage);
 
 //creamos nuestra ruta generica, simeprea al final
-router.get("*", (req, res) => {
-  res.status(400);
-  res.send("<h1><center>404 ERROR -- Pagina No Encontrada</center></h1>");
-});
+router.get("*", rutaGenerica);
 
 export default router;

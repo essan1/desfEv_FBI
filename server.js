@@ -8,7 +8,7 @@ const __dirname = import.meta.dirname;
 //mioddleware res json
 app.use(express.json());
 //carpetos publicas
-app.use(express.static(path.join(__dirname, "assets")));
+app.use(express.static(path.join(__dirname, "src/assets")));
 
 app.use(router);
 
