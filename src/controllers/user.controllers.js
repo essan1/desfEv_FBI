@@ -1,15 +1,28 @@
-import users from "../../public/data/agentes.js"
+import agentes from "../../public/data/agentes.js"
 import jwt from "jsonwebtoken"
 process.loadEnvFile();
 
 const secretKey = process.env.SECRET_KEY;
 
-//genToken
-export const getUsers = (req, res) => {
+
+const signInControl = (req, res) => {
     try {
-        const token = jwt.sign(users[1], secretKey);
-        res.send(token).status(200);
+        const {email, password } = req.query;
+        const agent = agentes.find((agent) => {
+        agent.email === email && agent.password === password;
+        })
+        let token = jwt.sign({ email }, secretKey, { expiresIn: "1m"});
+        agent ? res.send(`<p>Agente Autorizado, bienvenido <b>${email}</b>
+        Su Token esta en el sessionStorage</p>
+        <a href="/dashboard?token=${token}"> Ir al Dashboard</a>
+        <script>
+            sessionStorage.setItem('token', JSON.stringify("${token}"))
+        </script>`) : res.send("Usuario o Password Incorrecta")
     } catch (error) {
-        res.status(401).json({ message: error.message})
+        console.log(error.message);
     }
-};
+} 
+
+export {
+    signInControl
+}
