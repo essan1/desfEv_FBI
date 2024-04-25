@@ -14,6 +14,7 @@
   </head>
   <body>
     <center>
+      <h1 id="tile-page">🚨 FBI System 🚨</h1>
       <iframe
         title="dash-gif"
         src="https://giphy.com/embed/VFO8XsGtmJZKtJqhkH"
@@ -22,10 +23,22 @@
         frameborder="0"
         class="giphy-embed"
         allowfullscreen
-      ></iframe
-      ><br />Bienvenido al <span class="dsh">DASHBOARD</span> Agente.<br />
+      ></iframe> <br>
+      <h1>🕵🏻</h1>
+      <b>¡BIENVENIDO al <span class="dsh">DASHBOARD!</span></b> <br/> 
+      
       <hr />
+      Email del agente en conectado: <br />
+      <span id="email" class="email"></span>
+      <p id="emailUser"></p>
+      
       <button><a class="logout" href="/">Cerrar Sesion👋🏻</a></button>
+      <br />
     </center>
+    <script>
+      const urlParams = new URLSearchParams(window.location.search);
+      const email = urlParams.get("email");
+      document.getElementById("emailUser").innerText += email;
+    </script>
   </body>
 </html>

@@ -9,6 +9,8 @@ const __dirname = import.meta.dirname;
 app.use(express.json());
 //carpetos publicas
 app.use(express.static(path.join(__dirname, "src/assets")));
+app.use(express.static(path.join(__dirname, "src/controllers")));
+app.use(express.static(path.join(__dirname, "src/views")));
 
 app.use(router);
 
