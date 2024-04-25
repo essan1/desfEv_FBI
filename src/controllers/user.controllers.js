@@ -17,8 +17,8 @@ export const signIn = (req, res) => {
         let token = jwt.sign({ email }, secretKey, { expiresIn: "2m"});
         //validacion
         agent
-          ? res.send(`<center><p>Agente Autorizado, bienvenido <b>${email}</b> <br>
-        TOKEN alamcenado en sessionStorage</p>
+          ? res.send(`<center><h1>Agente Autorizado ✅</h1> <p>¡Bienvenido: <b>${email}</b>! <br>
+        [[[Token almacenado en sessionStorage]]]</p>
         <a href="/dashboard?token=${token}"> Ir al Dashboard</a></center>
         <script>
             sessionStorage.setItem('token', JSON.stringify("${token}"))
