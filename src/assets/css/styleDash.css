@@ -1,0 +1,20 @@
+body {
+  background-color: rgb(3, 19, 106);
+  color: rgb(255, 255, 193);
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.dsh {
+    font-weight: 700;
+    font-size: 25px;
+}
+
+.logout {
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 30px
+}
